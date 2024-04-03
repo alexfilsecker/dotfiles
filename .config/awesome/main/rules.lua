@@ -4,6 +4,7 @@ local awful = require("awful")
 local clientbuttons = require("binding.clientbuttons")
 local clientkeys = require("binding.clientkeys")
 
+
 return {
   {
     rule = {},

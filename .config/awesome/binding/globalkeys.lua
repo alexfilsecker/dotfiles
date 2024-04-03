@@ -3,9 +3,9 @@ local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local menubar = require("menubar")
 
-local modkey = RC.vars.modkey
-local mymainmenu = RC.mainmenu
-local terminal = RC.vars.terminal
+local modkey = require("main.user-variables").modkey
+local mymainmenu = require("main.menu")
+local terminal = require("main.user-variables").terminal
 
 return gears.table.join(
   awful.key({ modkey, }, "s", hotkeys_popup.show_help,

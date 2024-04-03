@@ -11,7 +11,7 @@ local set_wallpaper = require("deco.wallpaper")
 
 local mylauncher = awful.widget.launcher({
   image = beautiful.awesome_icon,
-  menu = RC.mymainmenu
+  menu = require("main.menu")
 })
 
 awful.screen.connect_for_each_screen(function(s)

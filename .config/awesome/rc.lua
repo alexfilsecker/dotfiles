@@ -3,18 +3,16 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local menubar = require("menubar")
 
+-- For showing hotkeys of other things, like tmux
 require("awful.hotkeys_popup.keys")
 
+-- Start theme
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 require('main.error-handling')
 require('main.screens')
 
-RC = {}
-RC.vars = require("main.user-variables")
-RC.mainmenu = awful.menu(require("main.menu"))
-
-menubar.utils.terminal = RC.vars.terminal
+menubar.utils.terminal = require("main.user-variables").terminal
 
 require("deco.statusbar")
 

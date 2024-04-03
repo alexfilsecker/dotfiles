@@ -1,7 +1,7 @@
 local gears = require("gears")
 local awful = require("awful")
 
-local modkey = RC.vars.modkey
+local modkey = require("main.user-variables").modkey
 
 return function(globalkeys)
   for i = 1, 9 do
@@ -50,5 +50,6 @@ return function(globalkeys)
         { description = "toggle focused client on tag #" .. i, group = "tag" })
     )
   end
+
   return globalkeys
 end
