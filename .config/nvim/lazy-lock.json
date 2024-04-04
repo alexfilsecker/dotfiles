@@ -1,0 +1,5 @@
+{
+  "catppuccin": { "branch": "main", "commit": "aebe43db9cb26e1c70fc5b2fd4158169c405e720" },
+  "lazy.nvim": { "branch": "main", "commit": "31ddbea7c10b6920c9077b66c97951ca8682d5c8" },
+  "vscode_modern_theme.nvim": { "branch": "main", "commit": "8fb7181b6af41de70c37de53a9e3325ba7849ecb" }
+}
