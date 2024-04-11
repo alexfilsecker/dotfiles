@@ -18,7 +18,7 @@ return gears.table.join(
     function(c)
       c:kill()
     end,
-    { description = "close", group = "client peene" }
+    { description = "close", group = "client" }
   ),
 
   awful.key(

@@ -17,10 +17,11 @@ local layouts = {
 }
 
 local tag_layouts = {
-  { '1️⃣ NeoVim', layouts['tile'] },
-  { '2️⃣ Slack', layouts['max'] },
-  { '3️⃣ VSCode', layouts['max'] },
-  { '4 Alacritty', layouts['max'] }
+  { 'Coding', layouts['tile'] },
+  { 'Planning', layouts['tile'] },
+  { 'Spotify', layouts['tile'] },
+  { 'Others', layouts['tile'] },
+  { '5', layouts['tile'] },
 }
 
 local tag_pairs = {}
