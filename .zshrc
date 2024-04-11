@@ -22,6 +22,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias lazy-config='lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 alias ls='ls -l --color=auto'
 alias ll='ls -la --color=auto'
