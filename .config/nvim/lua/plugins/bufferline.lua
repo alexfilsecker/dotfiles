@@ -7,7 +7,6 @@ return {
   config = function()
     require("bufferline").setup()
 
-
     -- Keymaps for cycling through buffers
     vim.keymap.set('n', 'H', vim.cmd.BufferLineCyclePrev)
     vim.keymap.set('n', 'L', vim.cmd.BufferLineCycleNext)
