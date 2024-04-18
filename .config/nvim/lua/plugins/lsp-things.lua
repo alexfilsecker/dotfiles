@@ -14,7 +14,9 @@ return {
     config = function()
       require('mason-lspconfig').setup({
         ensure_installed = {
-          'lua_ls'
+          'lua_ls',
+          'tsserver',
+          'eslint',
         }
       })
     end
@@ -28,6 +30,8 @@ return {
 
       -- Server specific things
       lspconfig.lua_ls.setup({})
+      lspconfig.tsserver.setup({})
+      lspconfig.eslint.setup({})
 
       -- keymaps
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
