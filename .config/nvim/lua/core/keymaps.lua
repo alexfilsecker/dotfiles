@@ -14,10 +14,10 @@ vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
 -- Could not make this to be as intuitive as in tmux
 -- In tmux, pane resizing works by moving the line between panes
 -- Here it makes a pane bigger or smaller so it is not an intuitive motion
-vim.keymap.set('n', '<C-M-h>', ':vertical resize +2<CR>')
+vim.keymap.set('n', '<C-M-h>', ':vertical resize -2<CR>')
 vim.keymap.set('n', '<C-M-j>', ':resize -2<CR>')
 vim.keymap.set('n', '<C-M-k>', ':resize +2<CR>')
-vim.keymap.set('n', '<C-M-l>', ':vertical resize -2<CR>')
+vim.keymap.set('n', '<C-M-l>', ':vertical resize +2<CR>')
 
 -- Split views
 vim.keymap.set('n', '<leader>|', vim.cmd.vsplit)
