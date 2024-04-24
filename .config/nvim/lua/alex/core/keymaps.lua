@@ -35,17 +35,42 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current pane" })
 
 -- Tabing
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+keymap.set(
+  "n",
+  "<leader>tx",
+  "<cmd>tabclose<CR>",
+  { desc = "Close current tab" }
+) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+keymap.set(
+  "n",
+  "<leader>tf",
+  "<cmd>tabnew %<CR>",
+  { desc = "Open current buffer in new tab" }
+) --  move current buffer to new tab
 
 -- External clipboard
-keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to external clipboard" })
-keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from external clipboard" })
+keymap.set(
+  { "n", "v" },
+  "<leader>y",
+  '"+y',
+  { desc = "Yank to external clipboard" }
+)
+keymap.set(
+  { "n", "v" },
+  "<leader>p",
+  '"+p',
+  { desc = "Paste from external clipboard" }
+)
 
 -- Reset search highlighting
-keymap.set("n", "<leader>nh", vim.cmd.nohlsearch, { desc = "Remove search highlighting" })
+keymap.set(
+  "n",
+  "<leader>nh",
+  vim.cmd.nohlsearch,
+  { desc = "Remove search highlighting" }
+)
 
 -- Move whole lines
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })

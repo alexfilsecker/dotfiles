@@ -13,13 +13,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Use lazy
-require("lazy").setup({ { import = "alex.plugins" }, { import = "alex.plugins.lsp" } }, {
-  checker = {
-    -- Used to check for updates
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false, -- Disable annoying notifications whenever a plugin file changes
-  },
-})
+require("lazy").setup(
+  { { import = "alex.plugins" }, { import = "alex.plugins.lsp" } },
+  {
+    checker = {
+      -- Used to check for updates
+      enabled = true,
+      notify = false,
+    },
+    change_detection = {
+      notify = false, -- Disable annoying notifications whenever a plugin file changes
+    },
+  }
+)
