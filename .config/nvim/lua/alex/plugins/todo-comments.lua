@@ -1,3 +1,6 @@
+-- This plugin lets me set up TODO comments
+-- Available comments are: FIX, TODO, HACK, WARN, PERF, NOTE, TEST
+
 return {
   "folke/todo-comments.nvim",
   event = { "BufReadPre", "BufNewFile" },

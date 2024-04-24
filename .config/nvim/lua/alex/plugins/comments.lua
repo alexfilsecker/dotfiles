@@ -1,3 +1,5 @@
+-- This plugin allows me to auto comment things
+
 return {
   "numToStr/Comment.nvim",
   event = { "BufReadPre", "BufNewFile" },

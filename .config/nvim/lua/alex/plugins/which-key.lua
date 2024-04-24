@@ -3,16 +3,16 @@
 -- when creating any keymap.
 
 return {
-	"folke/which-key.nvim",
-	event = "VeryLazy",
-	init = function()
-		vim.o.timeout = true
-		vim.o.timeoutlen = 300 -- ms until the window help appears
-	end,
-	opts = {
-		-- Here we change the default options.
-		window = {
-			border = "single",
-		},
-	},
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300 -- ms until the window help appears
+  end,
+  opts = {
+    -- Here we change the default options.
+    window = {
+      border = "single",
+    },
+  },
 }

@@ -1,3 +1,5 @@
+-- This pluggin allows me to maximize a split temporarily in an easy way
+
 return {
   "szw/vim-maximizer",
   keys = {
