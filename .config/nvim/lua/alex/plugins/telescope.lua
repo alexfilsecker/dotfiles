@@ -16,17 +16,18 @@ return {
 
 		telescope.setup({
 			defaults = {
-				path_display = { "smart" }, --
+				path_display = { "smart" }, -- Shows only the necesary part of the path
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, --move to prev result
 						["<C-j>"] = actions.move_selection_next, --move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- No clue what this does
 					},
 				},
 			},
 		})
 
+		-- Load fzf for finding in a fuzzy way
 		telescope.load_extension("fzf")
 
 		-- Set keymaps

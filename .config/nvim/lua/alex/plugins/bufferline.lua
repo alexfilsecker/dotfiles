@@ -1,4 +1,4 @@
--- This plugin gives me the tab like look of all my open buffers.
+-- This plugin gives me the tab like look of all my tabs
 
 return {
 	"akinsho/bufferline.nvim",
@@ -6,8 +6,8 @@ return {
 	dependencies = "nvim-tree/nvim-web-devicons",
 	opts = {
 		options = {
-			mode = "tabs",
-			separator_style = "slant",
+			mode = "tabs", -- Use tabs, I can also use buffers instead
+			separator_style = "slant", -- Use slant type separator because it looks nice
 		},
 	},
 }
