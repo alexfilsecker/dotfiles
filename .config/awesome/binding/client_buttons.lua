@@ -18,7 +18,7 @@ return gears.table.join(
   end),
 
   -- Activate and start resizing when right clicking with modkey
-  awful.button({ modkey }, 3, function(c)
+  awful.button({ modkey, "Shift" }, 1, function(c)
     c:emit_signal("request::activate", "mouse_click", { raise = true })
     awful.mouse.client.resize(c)
   end)

@@ -10,10 +10,10 @@ return gears.table.join(
     c:raise()
   end, { description = "Toggle client fullscreen", group = "client" }),
 
-  -- < Super + Shift + c > closes the client
-  awful.key({ modkey, "Shift" }, "c", function(c)
+  -- < Super + q > closes the client
+  awful.key({ modkey }, "q", function(c)
     c:kill()
-  end, { description = "close", group = "client" }),
+  end, { description = "Close current client", group = "client" }),
 
   -- < Super + Ctrl + Space > toogles floating window
   awful.key(
@@ -35,28 +35,43 @@ return gears.table.join(
     c:move_to_screen()
   end, { description = "Move to screen", group = "client" }),
 
+  -- < Super + t > Toogles client keep on top property
   awful.key({ modkey }, "t", function(c)
     c.ontop = not c.ontop
-  end, { description = "toggle keep on top", group = "client" }),
+  end, { description = "Toggles client keep on top", group = "client" }),
 
+  -- < Super + n > Minimizes the client client.
+  -- Notice that you cannot regain focus on a minimized client
+  -- unless you click it on the status bar
   awful.key({ modkey }, "n", function(c)
-    -- The client currently has the input focus, so it cannot be
-    -- minimized, since minimized clients can't have the focus.
     c.minimized = true
-  end, { description = "minimize", group = "client" }),
+  end, { description = "Minimize client", group = "client" }),
 
+  -- < Super + m > Toggle client maximization
   awful.key({ modkey }, "m", function(c)
     c.maximized = not c.maximized
     c:raise()
-  end, { description = "(un)maximize", group = "client" }),
+  end, { description = "Toggle client maximization", group = "client" }),
 
-  awful.key({ modkey, "Control" }, "m", function(c)
-    c.maximized_vertical = not c.maximized_vertical
-    c:raise()
-  end, { description = "(un)maximize vertically", group = "client" }),
+  -- < Super + Ctrl + m > Toggle client vertical maximization
+  awful.key(
+    { modkey, "Control" },
+    "m",
+    function(c)
+      c.maximized_vertical = not c.maximized_vertical
+      c:raise()
+    end,
+    { description = "Toggle client vertical maximization", group = "client" }
+  ),
 
-  awful.key({ modkey, "Shift" }, "m", function(c)
-    c.maximized_horizontal = not c.maximized_horizontal
-    c:raise()
-  end, { description = "(un)maximize horizontally", group = "client" })
+  -- < Super + Shift + m > Toggle client horizontal maximization
+  awful.key(
+    { modkey, "Shift" },
+    "m",
+    function(c)
+      c.maximized_horizontal = not c.maximized_horizontal
+      c:raise()
+    end,
+    { description = "Toggle client horizontal maximization", group = "client" }
+  )
 )

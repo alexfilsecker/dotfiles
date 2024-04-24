@@ -7,9 +7,6 @@ local gears = require("gears")
 -- This enables auto focusing when changing screens
 require("awful.autofocus")
 
--- For showing hotkeys of other things, like tmux
-require("awful.hotkeys_popup.keys")
-
 -- standard theme library
 local beautiful = require("beautiful")
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
@@ -25,12 +22,12 @@ require("main.error_handling")
 -- Set status bar
 require("deco.statusbar")
 
-local bindtotags = require("binding.tag_bindings")
-local globalbuttons = require("binding.global_buttons")
-local globalkeys = require("binding.global_keys")
-globalkeys = bindtotags(globalkeys)
-root.buttons(globalbuttons)
-root.keys(globalkeys)
+-- Set up all global bindings
+local global_buttons = require("binding.global_buttons")
+local global_keys = require("binding.global_keys")
+local tag_bindings = require("binding.tag_bindings")
+root.buttons(global_buttons)
+root.keys(gears.table.join(global_keys, tag_bindings))
 
 awful.rules.rules = require("main.rules")
 
