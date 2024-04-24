@@ -1,8 +1,8 @@
 -- WELCOME TO ALEX AWESOME CONFIG
 
 -- Standard awesome library
-local gears = require("gears")
 local awful = require("awful")
+local gears = require("gears")
 
 -- This enables auto focusing when changing screens
 require("awful.autofocus")
