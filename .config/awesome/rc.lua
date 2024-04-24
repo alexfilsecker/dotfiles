@@ -1,24 +1,33 @@
+-- WELCOME TO ALEX AWESOME CONFIG
+
+-- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-local beautiful = require("beautiful")
-local menubar = require("menubar")
+
+-- This enables auto focusing when changing screens
+require("awful.autofocus")
 
 -- For showing hotkeys of other things, like tmux
 require("awful.hotkeys_popup.keys")
 
--- Start theme
+-- standard theme library
+local beautiful = require("beautiful")
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
-require('main.error-handling')
-require('main.screens')
+-- No clue what menubar is
+-- No clue what this does
+local menubar = require("menubar")
+menubar.utils.terminal = require("main.user_variables").terminal
 
-menubar.utils.terminal = require("main.user-variables").terminal
+-- Catch errors
+require("main.error_handling")
 
+-- Set status bar
 require("deco.statusbar")
 
-local bindtotags = require("binding.bindtotags")
-local globalbuttons = require("binding.globalbuttons")
-local globalkeys = require("binding.globalkeys")
+local bindtotags = require("binding.tag_bindings")
+local globalbuttons = require("binding.global_buttons")
+local globalkeys = require("binding.global_keys")
 globalkeys = bindtotags(globalkeys)
 root.buttons(globalbuttons)
 root.keys(globalkeys)
