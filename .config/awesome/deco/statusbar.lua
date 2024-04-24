@@ -1,10 +1,10 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
+-- local beautiful = require("beautiful")
 local gears = require("gears")
 local wibox = require("wibox")
 
-local mykeyboardlayout = awful.widget.keyboardlayout()
-local mytextclock = wibox.widget.textclock()
+-- local my_keyboard_layout = awful.widget.keyboardlayout()
+local my_textclock = wibox.widget.textclock()
 
 local taglist_buttons = require("binding.tag_buttons")
 local tasklist_buttons = require("binding.task_buttons")
@@ -12,11 +12,6 @@ local tasklist_buttons = require("binding.task_buttons")
 local set_wallpaper = require("deco.wallpaper")
 
 local tag_pairs = require("deco.tags")
-
-local mylauncher = awful.widget.launcher({
-  image = beautiful.awesome_icon,
-  menu = require("main.menu"),
-})
 
 awful.screen.connect_for_each_screen(function(s)
   set_wallpaper(s)
@@ -26,6 +21,7 @@ awful.screen.connect_for_each_screen(function(s)
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
+
   -- Create an imagebox widget which will contain an icon indicating which layout we're using.
   -- We need one layoutbox per screen.
   s.mylayoutbox = awful.widget.layoutbox(s)
@@ -43,6 +39,7 @@ awful.screen.connect_for_each_screen(function(s)
       awful.layout.inc(-1)
     end)
   ))
+
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist({
     screen = s,
@@ -65,16 +62,13 @@ awful.screen.connect_for_each_screen(function(s)
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      mylauncher,
       s.mytaglist,
       s.mypromptbox,
     },
     s.mytasklist, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      mykeyboardlayout,
-      wibox.widget.systray(),
-      mytextclock,
+      my_textclock,
       s.mylayoutbox,
     },
   })
