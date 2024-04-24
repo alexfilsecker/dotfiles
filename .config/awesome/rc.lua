@@ -25,10 +25,11 @@ require("deco.statusbar")
 -- Set up all global bindings
 local global_buttons = require("binding.global_buttons")
 local global_keys = require("binding.global_keys")
-local tag_bindings = require("binding.tag_bindings")
+local tag_keys = require("binding.tag_keys")
 root.buttons(global_buttons)
-root.keys(gears.table.join(global_keys, tag_bindings))
+root.keys(gears.table.join(global_keys, tag_keys))
 
-awful.rules.rules = require("main.rules")
+local rules = require("main.rules")
+awful.rules.rules = rules
 
 require("main.signals")

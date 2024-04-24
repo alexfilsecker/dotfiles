@@ -4,10 +4,12 @@ local awful = require("awful")
 local gears = require("gears")
 
 local modkey = require("main.user_variables").modkey
+local tag_pairs = require("deco.tags")
 
 local tag_bindings = gears.table.join()
+for i = 1, #tag_pairs.names do
+  local tag_name = '"' .. tag_pairs.names[i] .. '"'
 
-for i = 1, 9 do
   tag_bindings = gears.table.join(
     tag_bindings,
     -- View tag only.
@@ -17,7 +19,10 @@ for i = 1, 9 do
       if tag then
         tag:view_only()
       end
-    end, { description = "view tag #" .. i, group = "tag" }),
+    end, {
+      description = "View tag #" .. i .. " " .. tag_name,
+      group = "tag",
+    }),
 
     -- Toggle tag display.
     awful.key({ modkey, "Control" }, "#" .. i + 9, function()
@@ -26,22 +31,30 @@ for i = 1, 9 do
       if tag then
         awful.tag.viewtoggle(tag)
       end
-    end, { description = "toggle tag #" .. i, group = "tag" }),
+    end, {
+      description = "Toggle display on tag #" .. i .. " " .. tag_name,
+      group = "tag",
+    }),
 
-    -- Move client to tag.
+    -- Move client to tag and focus that tag
     awful.key({ modkey, "Shift" }, "#" .. i + 9, function()
       if client.focus then
         local tag = client.focus.screen.tags[i]
         if tag then
           client.focus:move_to_tag(tag)
+          tag:view_only()
         end
       end
     end, {
-      description = "move focused client to tag #" .. i,
+      description = "Move client to tag #"
+        .. i
+        .. " "
+        .. tag_name
+        .. " and focus it",
       group = "tag",
     }),
 
-    -- Toggle tag on focused client.
+    -- Toggle focused client on tag.
     awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9, function()
       if client.focus then
         local tag = client.focus.screen.tags[i]
@@ -50,7 +63,7 @@ for i = 1, 9 do
         end
       end
     end, {
-      description = "toggle focused client on tag #" .. i,
+      description = "Toggle focused client on tag #" .. i .. " " .. tag_name,
       group = "tag",
     })
   )

@@ -6,12 +6,12 @@ local wibox = require("wibox")
 local mykeyboardlayout = awful.widget.keyboardlayout()
 local mytextclock = wibox.widget.textclock()
 
-local taglist_buttons = require("deco.tag_list")
+local taglist_buttons = require("binding.tag_buttons")
 local tasklist_buttons = require("deco.task_list")
 
 local set_wallpaper = require("deco.wallpaper")
 
-local tag_pairs = require("main.screens")
+local tag_pairs = require("deco.tags")
 
 local mylauncher = awful.widget.launcher({
   image = beautiful.awesome_icon,
