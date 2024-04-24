@@ -7,17 +7,18 @@ local gears = require("gears")
 -- This enables auto focusing when changing screens
 require("awful.autofocus")
 
+-- Catch errors
+require("main.error_handling")
+
 -- standard theme library
 local beautiful = require("beautiful")
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+local theme = require("theme")
+beautiful.init(theme)
 
 -- No clue what menubar is
 -- No clue what this does
 local menubar = require("menubar")
 menubar.utils.terminal = require("main.user_variables").terminal
-
--- Catch errors
-require("main.error_handling")
 
 -- Set status bar
 require("deco.statusbar")

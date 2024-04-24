@@ -7,7 +7,7 @@ local mykeyboardlayout = awful.widget.keyboardlayout()
 local mytextclock = wibox.widget.textclock()
 
 local taglist_buttons = require("binding.tag_buttons")
-local tasklist_buttons = require("deco.task_list")
+local tasklist_buttons = require("binding.task_buttons")
 
 local set_wallpaper = require("deco.wallpaper")
 
