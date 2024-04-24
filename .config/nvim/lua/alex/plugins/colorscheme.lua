@@ -15,7 +15,7 @@ return {
 				nvim_tree_darker = true,
 			})
 
-			vim.cmd.colorscheme("vscode_modern")
+			-- vim.cmd.colorscheme("vscode_modern")
 		end,
 	},
 
@@ -54,7 +54,7 @@ return {
 				end,
 			})
 
-			-- vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 
