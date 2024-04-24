@@ -1,3 +1,3 @@
-require("core.vim-options")
-require("core.keymaps")
-require("core.lazy")
+require("alex.core")
+require("alex.lazy")
+
