@@ -54,7 +54,7 @@ return {
         end,
       })
 
-      vim.cmd.colorscheme("tokyonight")
+      -- vim.cmd.colorscheme("tokyonight")
     end,
   },
 
@@ -67,7 +67,7 @@ return {
         flavour = "mocha",
       })
 
-      -- vim.cmd.colorscheme("catppuccin")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 }

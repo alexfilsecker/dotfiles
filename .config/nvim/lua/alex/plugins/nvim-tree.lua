@@ -15,6 +15,7 @@ return {
         width = 35,
         -- relativenumber = true,
       },
+      hijack_cursor = true, -- Place the cursor in the same colum always
       -- change folder arrow icons
       renderer = {
         indent_markers = {

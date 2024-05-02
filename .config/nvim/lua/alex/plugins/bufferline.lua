@@ -7,7 +7,6 @@ return {
   opts = {
     options = {
       mode = "tabs", -- Use tabs, I can also use buffers instead
-      separator_style = "slant", -- Use slant type separator because it looks nice
     },
   },
 }

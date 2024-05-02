@@ -36,6 +36,7 @@ return {
         "html",
         "cssls",
         "lua_ls",
+        "pylsp",
       },
     })
 

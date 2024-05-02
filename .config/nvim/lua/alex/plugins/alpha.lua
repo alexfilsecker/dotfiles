@@ -17,21 +17,22 @@ return {
       "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
       "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
       "                                                     ",
+      vim.loop.cwd(),
     }
 
     -- Set menu
     dashboard.section.buttons.val = {
-      dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-      dashboard.button(
-        "Space wr",
-        "󰁯  > Restore session for cwd",
-        "<cmd>SessionRestore<CR>"
-      ),
       dashboard.button(
         "Space ee",
         "  > Toggle file explorer",
         "<cmd>NvimTreeToggle<CR>"
       ),
+      dashboard.button(
+        "Space wr",
+        "󰁯  > Restore session for cwd",
+        "<cmd>SessionRestore<CR>"
+      ),
+      dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
       dashboard.button(
         "Space ff",
         "󰱼  > Find File",
