@@ -2,8 +2,7 @@
 -- local gears = require("gears")
 -- local wibox = require("wibox")
 --
--- -- Add a titlebar if titlebars_enabled is set to true in the rules.
--- client.connect_signal("request::titlebars", function(c)
+-- local titlebar = function(c)
 --   -- buttons for the titlebar
 --   local buttons = gears.table.join(
 --     awful.button({}, 1, function()
@@ -39,4 +38,7 @@
 --     },
 --     layout = wibox.layout.align.horizontal,
 --   })
--- end)
+-- end
+--
+-- -- Add a titlebar if titlebars_enabled is set to true in the rules.
+-- client.connect_signal("request::titlebars", titlebar)

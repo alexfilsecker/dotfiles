@@ -2,12 +2,16 @@ local awful = require("awful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local menubar = require("menubar")
+-- local naughty = require("naughty") -- In case I need to debug
 
 local user_variables = require("main.user_variables")
 local modkey = user_variables.modkey
 local terminal = user_variables.terminal
 
 local mymainmenu = require("main.menu")
+
+local brightness_widget =
+  require("awesome-wm-widgets.brightness-widget.brightness")
 
 return gears.table.join(
   -- AWESOME GROUP
@@ -44,7 +48,7 @@ return gears.table.join(
   awful.key({ modkey }, "x", function()
     awful.prompt.run({
       prompt = "Run Lua code: ",
-      textbox = awful.screen.focused().mypromptbox.widget,
+      textbox = awful.screen.focused().promptbox_widget.widget,
       exe_callback = awful.util.eval,
       history_path = awful.util.get_cache_dir() .. "/history_eval",
     })
@@ -58,13 +62,18 @@ return gears.table.join(
 
   -- < Super + r > Run lua prompt
   awful.key({ modkey }, "r", function()
-    awful.screen.focused().mypromptbox:run()
+    awful.screen.focused().promptbox_widget:run()
   end, { description = "Run lua prompt", group = "launcher" }),
 
   -- < Super + p > Show applications
   awful.key({ modkey }, "p", function()
     menubar.show()
   end, { description = "Show applications", group = "launcher" }),
+
+  -- < Super + g > Opens Google Chrome
+  awful.key({ modkey }, "g", function()
+    awful.spawn("google-chrome-stable")
+  end, { desc = "Open Google Chrome", group = "launcher" }),
 
   -- SCREENS
   -- < Super + Ctrl + j > Focus next screen
@@ -195,5 +204,16 @@ return gears.table.join(
   -- < Super + Ctrl + h > Decrease the number of columns
   awful.key({ modkey, "Control" }, "h", function()
     awful.tag.incncol(-1, nil, true)
-  end, { description = "Decrease the number of columns", group = "layout" })
+  end, { description = "Decrease the number of columns", group = "layout" }),
+
+  -- BRIGHTNESS GROUP
+  -- < Fn + F5 > Increase brightness
+  awful.key({}, "F5", function()
+    brightness_widget:inc()
+  end, { description = "Increase brightness", group = "brightness" }),
+
+  -- < Fn + F4 > Decrease brightness
+  awful.key({}, "F4", function()
+    brightness_widget:dec()
+  end, { description = "Decrease brightness", group = "brightness" })
 )

@@ -12,16 +12,8 @@ require("main.error_handling")
 
 -- standard theme library
 local beautiful = require("beautiful")
-local theme = require("theme")
+local theme = require("theme.theme")
 beautiful.init(theme)
-
--- No clue what menubar is
--- No clue what this does
-local menubar = require("menubar")
-menubar.utils.terminal = require("main.user_variables").terminal
-
--- Set status bar
-require("deco.statusbar")
 
 -- Set up all global bindings
 local global_buttons = require("binding.global_buttons")
@@ -30,7 +22,21 @@ local tag_keys = require("binding.tag_keys")
 root.buttons(global_buttons)
 root.keys(gears.table.join(global_keys, tag_keys))
 
+-- rules
 local rules = require("main.rules")
 awful.rules.rules = rules
 
-require("main.signals")
+-- screens
+require("main.screens")
+
+-- client
+require("main.client")
+
+-- Start picom compositor
+awful.spawn.with_shell("picom -b")
+
+client.connect_signal("manage", function(c)
+  c.shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, 10) -- Replace 'radius' with your desired value
+  end
+end)

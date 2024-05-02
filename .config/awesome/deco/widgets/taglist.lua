@@ -1,10 +1,11 @@
 local awful = require("awful")
 local gears = require("gears")
 
+local tag_pairs = require("deco.tags")
 local user_variables = require("main.user_variables")
 local modkey = user_variables.modkey
 
-return gears.table.join(
+local buttons = gears.table.join(
 
   -- < LeftClick > Right click on tab to view it
   awful.button({}, 1, function(t)
@@ -39,3 +40,14 @@ return gears.table.join(
     awful.tag.viewprev(t.screen)
   end)
 )
+
+return function(s)
+  -- Set tag names and layouts
+  awful.tag(tag_pairs.names, s, tag_pairs.layouts)
+
+  return awful.widget.taglist({
+    screen = s,
+    filter = awful.widget.taglist.filter.all,
+    buttons = buttons,
+  })
+end

@@ -24,8 +24,8 @@ theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
-theme.useless_gap = dpi(4)
-theme.border_width = dpi(4)
+theme.useless_gap = dpi(2)
+theme.border_width = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus = "#535d6c"
 theme.border_marked = "#91231c"
@@ -60,7 +60,7 @@ theme.taglist_squares_unsel =
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
-theme.menu_height = dpi(15)
+theme.menu_height = dpi(20)
 theme.menu_width = dpi(100)
 
 -- You can add as many variables as
@@ -115,7 +115,8 @@ theme.titlebar_maximized_button_normal_active = themes_path
 theme.titlebar_maximized_button_focus_active = themes_path
   .. "default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = themes_path .. "default/background.png"
+local wallpapers_path = "~/.config/awesome/theme/wallpapers/"
+theme.wallpaper = wallpapers_path .. "wallpaperflare.com_wallpaper.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "default/layouts/fairhw.png"
@@ -134,6 +135,15 @@ theme.layout_cornernw = themes_path .. "default/layouts/cornernww.png"
 theme.layout_cornerne = themes_path .. "default/layouts/cornernew.png"
 theme.layout_cornersw = themes_path .. "default/layouts/cornersww.png"
 theme.layout_cornerse = themes_path .. "default/layouts/cornersew.png"
+
+theme.lain_icons = os.getenv("HOME")
+  .. "/.config/awesome/lain/icons/layout/default/"
+theme.layout_termfair = theme.lain_icons .. "termfairw.png"
+theme.layout_centerfair = theme.lain_icons .. "centerfair.png" -- termfair.center
+theme.layout_cascade = theme.lain_icons .. "cascade.png"
+theme.layout_cascadetile = theme.lain_icons .. "cascadetile.png" -- cascade.tile
+theme.layout_centerwork = theme.lain_icons .. "centerwork.png"
+theme.layout_centerworkh = theme.lain_icons .. "centerworkh.png" -- centerwork.horizontal
 
 -- Generate Awesome icon:
 theme.awesome_icon =

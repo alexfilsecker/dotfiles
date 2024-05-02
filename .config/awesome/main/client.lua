@@ -1,7 +1,6 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
-
-require("deco.titlebar")
+local gears = require("gears")
 
 client.connect_signal("manage", function(c)
   if
@@ -10,6 +9,10 @@ client.connect_signal("manage", function(c)
     and not c.size_hints.program_position
   then
     awful.placement.no_offscreen(c)
+  end
+
+  c.shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, 10) -- Replace 'radius' with your desired value
   end
 end)
 

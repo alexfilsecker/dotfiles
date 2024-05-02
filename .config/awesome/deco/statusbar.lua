@@ -1,75 +1,46 @@
 local awful = require("awful")
--- local beautiful = require("beautiful")
-local gears = require("gears")
 local wibox = require("wibox")
 
--- local my_keyboard_layout = awful.widget.keyboardlayout()
-local my_textclock = wibox.widget.textclock()
+local battery_widget = require("deco.widgets.battery")
+local brightness_widget = require("deco.widgets.brightness")
+local create_layoutbox_widget = require("deco.widgets.layoutbox")
+local create_taglist_widget = require("deco.widgets.taglist")
+local create_tasklist_widget = require("deco.widgets.tasklist")
+local promptbox_widget = require("deco.widgets.promptbox")
+local text_clock_widget = require("deco.widgets.text_clock")
+local volume_widget = require("deco.widgets.volume")
 
-local taglist_buttons = require("binding.tag_buttons")
-local tasklist_buttons = require("binding.task_buttons")
+local set_statusbar = function(s)
+  -- create widgets
+  local taglist_widget = create_taglist_widget(s)
+  local tasklist_widget = create_tasklist_widget(s)
+  local layoutbox_widget = create_layoutbox_widget(s)
 
-local set_wallpaper = require("deco.wallpaper")
-
-local tag_pairs = require("deco.tags")
-
-awful.screen.connect_for_each_screen(function(s)
-  set_wallpaper(s)
-
-  -- Set tag names and layouts
-  awful.tag(tag_pairs.names, s, tag_pairs.layouts)
-
-  -- Create a promptbox for each screen
-  s.mypromptbox = awful.widget.prompt()
-
-  -- Create an imagebox widget which will contain an icon indicating which layout we're using.
-  -- We need one layoutbox per screen.
-  s.mylayoutbox = awful.widget.layoutbox(s)
-  s.mylayoutbox:buttons(gears.table.join(
-    awful.button({}, 1, function()
-      awful.layout.inc(1)
-    end),
-    awful.button({}, 3, function()
-      awful.layout.inc(-1)
-    end),
-    awful.button({}, 4, function()
-      awful.layout.inc(1)
-    end),
-    awful.button({}, 5, function()
-      awful.layout.inc(-1)
-    end)
-  ))
-
-  -- Create a taglist widget
-  s.mytaglist = awful.widget.taglist({
-    screen = s,
-    filter = awful.widget.taglist.filter.all,
-    buttons = taglist_buttons,
-  })
-
-  -- Create a tasklist widget
-  s.mytasklist = awful.widget.tasklist({
-    screen = s,
-    filter = awful.widget.tasklist.filter.currenttags,
-    buttons = tasklist_buttons,
-  })
+  -- Save important widgets in the screen object
+  s.promptbox_widget = promptbox_widget
 
   -- Create the wibox
-  s.mywibox = awful.wibar({ position = "top", screen = s })
+  local mywibox = awful.wibar({ position = "top", screen = s })
 
   -- Add widgets to the wibox
-  s.mywibox:setup({
+  mywibox:setup({
     layout = wibox.layout.align.horizontal,
     { -- Left widgets
       layout = wibox.layout.fixed.horizontal,
-      s.mytaglist,
-      s.mypromptbox,
+      taglist_widget,
+      promptbox_widget,
     },
-    s.mytasklist, -- Middle widget
+    tasklist_widget, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      my_textclock,
-      s.mylayoutbox,
+      spacing = 10,
+      text_clock_widget,
+      volume_widget,
+      brightness_widget,
+      battery_widget,
+      layoutbox_widget,
     },
   })
-end)
+end
+
+return set_statusbar

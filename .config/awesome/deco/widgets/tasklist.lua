@@ -1,7 +1,7 @@
 local awful = require("awful")
 local gears = require("gears")
 
-return gears.table.join(
+local buttons = gears.table.join(
   -- < LeftClick > Toogles minimzation and activates the client
   awful.button({}, 1, function(c)
     if c == client.focus then
@@ -26,3 +26,11 @@ return gears.table.join(
     awful.client.focus.byidx(-1)
   end)
 )
+
+return function(s)
+  return awful.widget.tasklist({
+    screen = s,
+    filter = awful.widget.tasklist.filter.currenttags,
+    buttons = buttons,
+  })
+end
