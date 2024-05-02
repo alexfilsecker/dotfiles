@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = "sans 8"
+theme.font = "FiraCode Nerd Font 8"
 
 theme.bg_normal = "#222222"
 theme.bg_focus = "#535d6c"
@@ -25,9 +25,9 @@ theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
 theme.useless_gap = dpi(2)
-theme.border_width = dpi(1)
+theme.border_width = dpi(4)
 theme.border_normal = "#000000"
-theme.border_focus = "#535d6c"
+theme.border_focus = "#d15d24"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -44,7 +44,7 @@ theme.border_marked = "#91231c"
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(4)
+local taglist_square_size = dpi(6)
 theme.taglist_squares_sel =
   theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 theme.taglist_squares_unsel =

@@ -11,9 +11,9 @@ local layouts = {
 awful.layout.layouts = layouts
 
 local tag_layouts = {
-  { "Coding", layouts[1] },
-  { "Planning", layouts[1] },
-  { "Spotify", layouts[1] },
+  { "💻 Code", layouts[1] },
+  { "📆 Planning", layouts[1] },
+  { "🎵 Spotify", layouts[1] },
   { "Others", layouts[1] },
   { "5", layouts[1] },
 }

@@ -20,7 +20,14 @@ local set_statusbar = function(s)
   s.promptbox_widget = promptbox_widget
 
   -- Create the wibox
-  local mywibox = awful.wibar({ position = "top", screen = s })
+  local mywibox = awful.wibar({
+    -- See options in https://awesomewm.org/apidoc/popups_and_bars/awful.wibar.html#awful.wibar
+    screen = s,
+    position = "top",
+    height = 40,
+    opacity = 1,
+    bg = "#00000099",
+  })
 
   -- Add widgets to the wibox
   mywibox:setup({
@@ -34,10 +41,10 @@ local set_statusbar = function(s)
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       spacing = 10,
-      text_clock_widget,
       volume_widget,
       brightness_widget,
       battery_widget,
+      text_clock_widget,
       layoutbox_widget,
     },
   })

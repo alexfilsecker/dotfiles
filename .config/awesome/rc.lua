@@ -34,9 +34,3 @@ require("main.client")
 
 -- Start picom compositor
 awful.spawn.with_shell("picom -b")
-
-client.connect_signal("manage", function(c)
-  c.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, 10) -- Replace 'radius' with your desired value
-  end
-end)

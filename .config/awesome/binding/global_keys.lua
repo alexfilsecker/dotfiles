@@ -12,6 +12,7 @@ local mymainmenu = require("main.menu")
 
 local brightness_widget =
   require("awesome-wm-widgets.brightness-widget.brightness")
+local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 return gears.table.join(
   -- AWESOME GROUP
@@ -215,5 +216,21 @@ return gears.table.join(
   -- < Fn + F4 > Decrease brightness
   awful.key({}, "F4", function()
     brightness_widget:dec()
-  end, { description = "Decrease brightness", group = "brightness" })
+  end, { description = "Decrease brightness", group = "brightness" }),
+
+  -- VOLUME GROUP
+  -- < Fn + F1 > Toggle mute
+  awful.key({}, "F1", function()
+    volume_widget:toggle()
+  end, { description = "Toggle mute", group = "volume" }),
+
+  -- < Fn + F2 > Decrease volume
+  awful.key({}, "F2", function()
+    volume_widget:dec(5)
+  end, { description = "Decrease volume", group = "volume" }),
+
+  -- < Fn + F3 > Increase volume
+  awful.key({}, "F3", function()
+    volume_widget:inc(5)
+  end, { description = "Increase volume", group = "volume" })
 )

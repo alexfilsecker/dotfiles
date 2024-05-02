@@ -3,6 +3,10 @@ local brightness_widget =
 
 return brightness_widget({
   -- Configuration goes here
+  -- https://github.com/streetturtle/awesome-wm-widgets/tree/master/brightness-widget#customization
   type = "icon_and_text",
   program = "brightnessctl",
+  size = 25,
+  font = "Play 8",
+  tooltip = true,
 })
