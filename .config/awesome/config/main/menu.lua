@@ -2,7 +2,7 @@ local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 local beautiful = require("beautiful") -- for awesome.icon
 
-local user_variables = require("main.user_variables")
+local user_variables = require("config.main.user_variables")
 local terminal = user_variables.terminal
 local editor_cmd = user_variables.editor_cmd
 

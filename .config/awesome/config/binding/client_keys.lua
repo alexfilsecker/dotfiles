@@ -1,7 +1,10 @@
 local awful = require("awful")
 local gears = require("gears")
 
-local modkey = require("main.user_variables").modkey
+local modkey = require("config.main.user_variables").modkey
+
+local minimized_counter_widget =
+  require("config.deco.widgets.minimized_counter")
 
 return gears.table.join(
   -- < Super + f > toogles client fullscreen
@@ -41,10 +44,9 @@ return gears.table.join(
   end, { description = "Toggles client keep on top", group = "client" }),
 
   -- < Super + n > Minimizes the client client.
-  -- Notice that you cannot regain focus on a minimized client
-  -- unless you click it on the status bar
   awful.key({ modkey }, "n", function(c)
     c.minimized = true
+    minimized_counter_widget:inc()
   end, { description = "Minimize client", group = "client" }),
 
   -- < Super + m > Toggle client maximization
@@ -54,24 +56,20 @@ return gears.table.join(
   end, { description = "Toggle client maximization", group = "client" }),
 
   -- < Super + Ctrl + m > Toggle client vertical maximization
-  awful.key(
-    { modkey, "Control" },
-    "m",
-    function(c)
-      c.maximized_vertical = not c.maximized_vertical
-      c:raise()
-    end,
-    { description = "Toggle client vertical maximization", group = "client" }
-  ),
+  awful.key({ modkey, "Control" }, "m", function(c)
+    c.maximized_vertical = not c.maximized_vertical
+    c:raise()
+  end, {
+    description = "Toggle client vertical maximization",
+    group = "client",
+  }),
 
   -- < Super + Shift + m > Toggle client horizontal maximization
-  awful.key(
-    { modkey, "Shift" },
-    "m",
-    function(c)
-      c.maximized_horizontal = not c.maximized_horizontal
-      c:raise()
-    end,
-    { description = "Toggle client horizontal maximization", group = "client" }
-  )
+  awful.key({ modkey, "Shift" }, "m", function(c)
+    c.maximized_horizontal = not c.maximized_horizontal
+    c:raise()
+  end, {
+    description = "Toggle client horizontal maximization",
+    group = "client",
+  })
 )

@@ -1,8 +1,8 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 
-local client_buttons = require("binding.client_buttons")
-local client_keys = require("binding.client_keys")
+local client_buttons = require("config.binding.client_buttons")
+local client_keys = require("config.binding.client_keys")
 
 return {
   {

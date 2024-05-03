@@ -4,14 +4,16 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local menubar = require("menubar")
 -- local naughty = require("naughty") -- In case I need to debug
 
-local user_variables = require("main.user_variables")
+local user_variables = require("config.main.user_variables")
 local modkey = user_variables.modkey
 local terminal = user_variables.terminal
 
-local mymainmenu = require("main.menu")
+local mymainmenu = require("config.main.menu")
 
 local brightness_widget =
   require("awesome-wm-widgets.brightness-widget.brightness")
+local minimized_counter_widget =
+  require("config.deco.widgets.minimized_counter")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 return gears.table.join(
@@ -114,14 +116,12 @@ return gears.table.join(
 
   -- CLIENT GROUP
   -- < Super + j > Focus next client in screen by index
-  awful.key(
-    { modkey },
-    "j",
-    function()
-      awful.client.focus.byidx(1)
-    end,
-    { description = "Focus next client in screen by index", group = "client" }
-  ),
+  awful.key({ modkey }, "j", function()
+    awful.client.focus.byidx(1)
+  end, {
+    description = "Focus next client in screen by index",
+    group = "client",
+  }),
 
   -- < Super + k > Focus previous client in screen by index
   awful.key({ modkey }, "k", function()
@@ -137,7 +137,10 @@ return gears.table.join(
     if client.focus then
       client.focus:raise()
     end
-  end, { description = "Focus previous client by history", group = "client" }),
+  end, {
+    description = "Focus previous client by history",
+    group = "client",
+  }),
 
   -- < Super + Shift + j > Swaps index with next client
   awful.key({ modkey, "Shift" }, "j", function()
@@ -147,7 +150,10 @@ return gears.table.join(
   -- < Super + Shift + k > Swaps index with next client
   awful.key({ modkey, "Shift" }, "k", function()
     awful.client.swap.byidx(-1)
-  end, { description = "Swaps index with previous client", group = "client" }),
+  end, {
+    description = "Swaps index with previous client",
+    group = "client",
+  }),
 
   -- < Super + u > Jump to urgent client
   awful.key(
@@ -163,6 +169,7 @@ return gears.table.join(
     -- Focus restored client
     if c then
       c:emit_signal("request::activate", "key.unminimize", { raise = true })
+      minimized_counter_widget:dec()
     end
   end, { description = "Restore minimized clients", group = "client" }),
 

@@ -3,8 +3,8 @@
 local awful = require("awful")
 local gears = require("gears")
 
-local modkey = require("main.user_variables").modkey
-local tag_pairs = require("deco.tags")
+local modkey = require("config.main.user_variables").modkey
+local tag_pairs = require("config.deco.tags")
 
 local tag_bindings = gears.table.join()
 for i = 1, #tag_pairs.names do

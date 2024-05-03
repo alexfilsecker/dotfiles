@@ -1,19 +1,22 @@
 local awful = require("awful")
+local beautiful = require("beautiful")
 local wibox = require("wibox")
 
-local battery_widget = require("deco.widgets.battery")
-local brightness_widget = require("deco.widgets.brightness")
-local create_layoutbox_widget = require("deco.widgets.layoutbox")
-local create_taglist_widget = require("deco.widgets.taglist")
-local create_tasklist_widget = require("deco.widgets.tasklist")
-local promptbox_widget = require("deco.widgets.promptbox")
-local text_clock_widget = require("deco.widgets.text_clock")
-local volume_widget = require("deco.widgets.volume")
+local battery_widget = require("config.deco.widgets.battery")
+local brightness_widget = require("config.deco.widgets.brightness")
+local create_layoutbox_widget = require("config.deco.widgets.layoutbox")
+local create_taglist_widget = require("config.deco.widgets.taglist")
+-- local create_tasklist_widget = require("config.deco.widgets.tasklist")
+local minimized_counter_widget =
+  require("config.deco.widgets.minimized_counter")
+local promptbox_widget = require("config.deco.widgets.promptbox")
+local text_clock_widget = require("config.deco.widgets.text_clock")
+local volume_widget = require("config.deco.widgets.volume")
 
 local set_statusbar = function(s)
   -- create widgets
   local taglist_widget = create_taglist_widget(s)
-  local tasklist_widget = create_tasklist_widget(s)
+  -- local tasklist_widget = create_tasklist_widget(s)
   local layoutbox_widget = create_layoutbox_widget(s)
 
   -- Save important widgets in the screen object
@@ -37,10 +40,15 @@ local set_statusbar = function(s)
       taglist_widget,
       promptbox_widget,
     },
-    tasklist_widget, -- Middle widget
+    -- tasklist_widget, -- Middle widget
+    {
+      widget = wibox.widget.separator,
+      thickness = 0,
+    },
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       spacing = 10,
+      minimized_counter_widget(),
       volume_widget,
       brightness_widget,
       battery_widget,

@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = "sans 8"
+theme.font = "FiraCode Nerd Font 8"
 
 theme.bg_normal = "#222222"
 theme.bg_focus = "#535d6c"
@@ -24,10 +24,10 @@ theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
-theme.useless_gap = dpi(4)
+theme.useless_gap = dpi(2)
 theme.border_width = dpi(4)
 theme.border_normal = "#000000"
-theme.border_focus = "#535d6c"
+theme.border_focus = "#d15d24"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -44,7 +44,7 @@ theme.border_marked = "#91231c"
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(4)
+local taglist_square_size = dpi(6)
 theme.taglist_squares_sel =
   theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 theme.taglist_squares_unsel =
@@ -60,7 +60,7 @@ theme.taglist_squares_unsel =
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path .. "default/submenu.png"
-theme.menu_height = dpi(15)
+theme.menu_height = dpi(20)
 theme.menu_width = dpi(100)
 
 -- You can add as many variables as
@@ -115,7 +115,8 @@ theme.titlebar_maximized_button_normal_active = themes_path
 theme.titlebar_maximized_button_focus_active = themes_path
   .. "default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = themes_path .. "default/background.png"
+local wallpapers_path = "~/.config/awesome/config/theme/wallpapers/"
+theme.wallpaper = wallpapers_path .. "wallpaperflare.com_wallpaper.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "default/layouts/fairhw.png"
@@ -135,6 +136,15 @@ theme.layout_cornerne = themes_path .. "default/layouts/cornernew.png"
 theme.layout_cornersw = themes_path .. "default/layouts/cornersww.png"
 theme.layout_cornerse = themes_path .. "default/layouts/cornersew.png"
 
+theme.lain_icons = os.getenv("HOME")
+  .. "/.config/awesome/lain/icons/layout/default/"
+theme.layout_termfair = theme.lain_icons .. "termfairw.png"
+theme.layout_centerfair = theme.lain_icons .. "centerfair.png" -- termfair.center
+theme.layout_cascade = theme.lain_icons .. "cascade.png"
+theme.layout_cascadetile = theme.lain_icons .. "cascadetile.png" -- cascade.tile
+theme.layout_centerwork = theme.lain_icons .. "centerwork.png"
+theme.layout_centerworkh = theme.lain_icons .. "centerworkh.png" -- centerwork.horizontal
+
 -- Generate Awesome icon:
 theme.awesome_icon =
   theme_assets.awesome_icon(theme.menu_height, theme.bg_focus, theme.fg_focus)
@@ -142,5 +152,9 @@ theme.awesome_icon =
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
+
+theme.icon_size = 12
+theme.icon_font = "Font Awesome 5 Free-Solid-900 " -- attention to space at the end!
+theme.icon_color = theme.fg_normal
 
 return theme

@@ -4,7 +4,7 @@ local lain = require("lain")
 local layouts = {
   awful.layout.suit.tile,
   awful.layout.suit.fair,
-  lain.layout.termfair,
+  -- lain.layout.termfair,
 }
 
 -- Set posible layouts

@@ -3,7 +3,7 @@
 local awful = require("awful")
 local gears = require("gears")
 
-local modkey = require("main.user_variables").modkey
+local modkey = require("config.main.user_variables").modkey
 
 return gears.table.join(
   -- Activate client when clicking it

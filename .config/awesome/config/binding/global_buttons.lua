@@ -1,7 +1,7 @@
 local awful = require("awful")
 local gears = require("gears")
 
-local mainmenu = require("main.menu")
+local mainmenu = require("config.main.menu")
 
 return gears.table.join(
   -- Open menu when right clicking on desktop

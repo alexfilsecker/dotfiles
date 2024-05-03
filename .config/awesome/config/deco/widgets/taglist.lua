@@ -1,8 +1,8 @@
 local awful = require("awful")
 local gears = require("gears")
 
-local tag_pairs = require("deco.tags")
-local user_variables = require("main.user_variables")
+local tag_pairs = require("config.deco.tags")
+local user_variables = require("config.main.user_variables")
 local modkey = user_variables.modkey
 
 local buttons = gears.table.join(
