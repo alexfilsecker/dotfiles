@@ -9,7 +9,7 @@ return {
     -- Set a keymap to open the link under cursor
     vim.keymap.set(
       "n",
-      "lv",
+      "<leader>lv",
       "<cmd>VisitLinkUnderCursor<CR>",
       { desc = "Visit link under cursor" }
     )
