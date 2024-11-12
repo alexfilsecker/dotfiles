@@ -1,4 +1,3 @@
----@diagnostic disable: inject-field
 -- All colorscheme plugins go here
 -- To setup the default colorscheme uncomment the line
 -- vim.cmd.colorscheme("scheme")
@@ -10,7 +9,7 @@ return {
     priority = 1000,
     config = function()
       require("vscode_modern").setup({
-        cursorline = true,
+
         transparent_background = false,
         nvim_tree_darker = true,
       })
@@ -54,7 +53,7 @@ return {
         end,
       })
 
-      -- vim.cmd.colorscheme("tokyonight")
+      vim.cmd.colorscheme("tokyonight")
     end,
   },
 
@@ -67,7 +66,7 @@ return {
         flavour = "mocha",
       })
 
-      vim.cmd.colorscheme("catppuccin")
+      -- vim.cmd.colorscheme("catppuccin")
     end,
   },
 }
