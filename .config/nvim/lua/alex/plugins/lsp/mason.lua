@@ -37,6 +37,7 @@ return {
         "cssls",
         "lua_ls",
         "pylsp",
+        "eslint",
       },
     })
 

@@ -1,5 +1,6 @@
 -- Here we place all formating related config
 
+
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
