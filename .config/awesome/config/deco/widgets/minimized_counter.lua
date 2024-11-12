@@ -6,7 +6,7 @@ local minimize_icon = make_fa_icon("\u{f78c}")
 
 local minimized_counter_widget = {}
 
-awful.screen.connect_for_each_screen(function(s)
+minimized_counter_widget.update_from_screen = function(s)
   s:connect_signal("tag::history::update", function()
     local counter = 0
     local tags_on_screen = s.tags
@@ -25,7 +25,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     minimized_counter_widget:set(counter)
   end)
-end)
+end
 
 local function worker()
   local current_count = 0
@@ -61,6 +61,7 @@ local function worker()
   end
 
   function minimized_counter_widget:set(count)
+    current_count = count
     update_widget(count)
   end
 

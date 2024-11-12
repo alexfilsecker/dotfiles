@@ -26,6 +26,13 @@ return gears.table.join(
     { description = "Show help", group = "awesome" }
   ),
 
+  awful.key(
+    { modkey, "Control", "Alt" },
+    "s",
+    awful.spawn("scrot -s holaaa"),
+    { description = "Show help", group = "awesome" }
+  ),
+
   -- < Super + w > Show main menu
   awful.key({ modkey }, "w", function()
     mymainmenu:show()
@@ -77,6 +84,11 @@ return gears.table.join(
   awful.key({ modkey }, "g", function()
     awful.spawn("google-chrome-stable")
   end, { desc = "Open Google Chrome", group = "launcher" }),
+
+  -- < Super + v > Opens Google Chrome
+  awful.key({ modkey }, "v", function()
+    awful.spawn("code")
+  end, { desc = "Open Visual Studio Code", group = "launcher" }),
 
   -- SCREENS
   -- < Super + Ctrl + j > Focus next screen
@@ -212,32 +224,32 @@ return gears.table.join(
   -- < Super + Ctrl + h > Decrease the number of columns
   awful.key({ modkey, "Control" }, "h", function()
     awful.tag.incncol(-1, nil, true)
-  end, { description = "Decrease the number of columns", group = "layout" }),
+  end, { description = "Decrease the number of columns", group = "layout" })
 
   -- BRIGHTNESS GROUP
   -- < Fn + F5 > Increase brightness
-  awful.key({}, "F5", function()
-    brightness_widget:inc()
-  end, { description = "Increase brightness", group = "brightness" }),
+  -- awful.key({}, "F5", function()
+  --   brightness_widget:inc()
+  -- end, { description = "Increase brightness", group = "brightness" }),
+  --
+  -- -- < Fn + F4 > Decrease brightness
+  -- awful.key({}, "F4", function()
+  --   brightness_widget:dec()
+  -- end, { description = "Decrease brightness", group = "brightness" })
 
-  -- < Fn + F4 > Decrease brightness
-  awful.key({}, "F4", function()
-    brightness_widget:dec()
-  end, { description = "Decrease brightness", group = "brightness" }),
-
-  -- VOLUME GROUP
-  -- < Fn + F1 > Toggle mute
-  awful.key({}, "F1", function()
-    volume_widget:toggle()
-  end, { description = "Toggle mute", group = "volume" }),
-
-  -- < Fn + F2 > Decrease volume
-  awful.key({}, "F2", function()
-    volume_widget:dec(5)
-  end, { description = "Decrease volume", group = "volume" }),
-
-  -- < Fn + F3 > Increase volume
-  awful.key({}, "F3", function()
-    volume_widget:inc(5)
-  end, { description = "Increase volume", group = "volume" })
+  -- -- VOLUME GROUP
+  -- -- < Fn + F1 > Toggle mute
+  -- awful.key({}, "F1", function()
+  --   volume_widget:toggle()
+  -- end, { description = "Toggle mute", group = "volume" }),
+  --
+  -- -- < Fn + F2 > Decrease volume
+  -- awful.key({}, "F2", function()
+  --   volume_widget:dec(5)
+  -- end, { description = "Decrease volume", group = "volume" }),
+  --
+  -- -- < Fn + F3 > Increase volume
+  -- awful.key({}, "F3", function()
+  --   volume_widget:inc(5)
+  -- end, { description = "Increase volume", group = "volume" })
 )
