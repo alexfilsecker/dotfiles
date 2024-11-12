@@ -1,4 +1,4 @@
--- WELCOME TO ALEX AWESOME CONFIG
+-- WELCOME TO ALEX'S AWESOME CONFIG
 
 -- Standard awesome library
 local awful = require("awful")
