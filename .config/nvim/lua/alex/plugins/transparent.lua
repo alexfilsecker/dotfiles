@@ -10,6 +10,6 @@ return {
       },
     })
 
-    vim.cmd("TransparentEnable")
+    -- vim.cmd("TransparentEnable")
   end,
 }
