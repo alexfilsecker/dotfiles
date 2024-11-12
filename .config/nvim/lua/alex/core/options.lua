@@ -36,7 +36,8 @@ opt.smartcase = true -- If you include mixed case, it uses that
 opt.scrolloff = 8 -- Min number of lines to show when available
 
 -- Wraping
-opt.wrap = false -- Disables line wraping
+opt.wrap = true -- Enables line wraping
+opt.linebreak = false -- Disable line breaking when wraping
 
 -- Cursor line
 opt.cursorline = true -- Sets the cursorline to appear
