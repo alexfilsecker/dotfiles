@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 -- Conciseness
 local keymap = vim.keymap
 
--- Exit insert mode
+-- Exit insert mode quickly
 keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 
 -- Acces Explorer
