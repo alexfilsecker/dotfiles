@@ -19,7 +19,7 @@ beautiful.init(theme)
 local global_buttons = require("config.binding.global_buttons")
 local global_keys = require("config.binding.global_keys")
 local tag_keys = require("config.binding.tag_keys")
-root.buttons(global_buttons)
+-- root.buttons(global_buttons)
 root.keys(gears.table.join(global_keys, tag_keys))
 
 -- rules
