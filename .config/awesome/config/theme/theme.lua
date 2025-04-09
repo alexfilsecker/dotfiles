@@ -24,8 +24,8 @@ theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
-theme.useless_gap = dpi(2)
-theme.border_width = dpi(4)
+theme.useless_gap = dpi(1)
+theme.border_width = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus = "#d15d24"
 theme.border_marked = "#91231c"
@@ -44,7 +44,7 @@ theme.border_marked = "#91231c"
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(6)
+local taglist_square_size = dpi(10)
 theme.taglist_squares_sel =
   theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 theme.taglist_squares_unsel =
@@ -115,8 +115,11 @@ theme.titlebar_maximized_button_normal_active = themes_path
 theme.titlebar_maximized_button_focus_active = themes_path
   .. "default/titlebar/maximized_focus_active.png"
 
-local wallpapers_path = "~/.config/awesome/config/theme/wallpapers/"
-theme.wallpaper = wallpapers_path .. "beautiful-natural-view-landscape.jpg"
+-- Wallpaper
+theme.wallpapers_path = "~/Images/wallpapers"
+theme.default_wallpaper =
+  "~/.config/awesome/config/theme/wallpapers/beautiful-natural-view-landscape.jpg"
+theme.wallpaper_change_timeout = 120 -- In seconds
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path .. "default/layouts/fairhw.png"
