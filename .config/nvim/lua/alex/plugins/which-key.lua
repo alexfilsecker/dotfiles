@@ -11,7 +11,7 @@ return {
   end,
   opts = {
     -- Here we change the default options.
-    window = {
+    win = {
       border = "single",
     },
   },
