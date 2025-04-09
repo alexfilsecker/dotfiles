@@ -16,7 +16,7 @@ local theme = require("config.theme.theme")
 beautiful.init(theme)
 
 -- Set up all global bindings
-local global_buttons = require("config.binding.global_buttons")
+-- local global_buttons = require("config.binding.global_buttons")
 local global_keys = require("config.binding.global_keys")
 local tag_keys = require("config.binding.tag_keys")
 -- root.buttons(global_buttons)
