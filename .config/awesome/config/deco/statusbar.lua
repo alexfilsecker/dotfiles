@@ -27,7 +27,7 @@ local set_statusbar = function(s)
     -- See options in https://awesomewm.org/apidoc/popups_and_bars/awful.wibar.html#awful.wibar
     screen = s,
     position = "top",
-    height = 40,
+    height = 20,
     opacity = 1,
     bg = "#00000099",
   })
