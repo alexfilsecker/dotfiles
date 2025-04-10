@@ -58,6 +58,9 @@ alias sshd='ssh root@170.64.175.43'
 # Activate the current's dir python virtual environment
 alias venv='source venv/bin/activate'
 
+# Frases project
+alias hola='curl localhost:8005'
+
 # bun completions
 [ -s "/home/alex/.bun/_bun" ] && source "/home/alex/.bun/_bun"
 
