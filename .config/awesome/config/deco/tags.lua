@@ -1,5 +1,4 @@
 local awful = require("awful")
-local nprint = require("utils.nprint")
 
 local layouts = {
   awful.layout.suit.tile,
@@ -13,16 +12,13 @@ local tags = {
   -- Main Screen
   {
     { "💻 Code", layouts[1] },
-    { "💻 Code 2", layouts[1] },
-    { "🎵 Spotify", layouts[1] },
-    { "📆 Planning", layouts[1] },
-    { "Others", layouts[1] },
-    { "6", layouts[1] },
+    { "🌐 Google", layouts[1] },
   },
   -- Secondary screen
   {
-    { "semen", layouts[1] },
-    { "caca", layouts[1] },
+    { "💻 Code 2", layouts[1] },
+    { "🌐 Google", layouts[1] },
+    { "🎵 Spotify", layouts[1] },
   },
 }
 

@@ -2,15 +2,25 @@
 
 local awful = require("awful")
 local gears = require("gears")
+local nprint = require("utils.nprint")
 
 local modkey = require("config.main.user_variables").modkey
 local screen_tags = require("config.deco.tags")
-local tag_pairs = screen_tags[1]
+
+local max_index = 1
+local max = 0
+for i = 2, #screen_tags do
+  local pairs = screen_tags[i]
+  if #pairs.names > max then
+    max_index = i
+    max = #pairs
+  end
+end
+
+local tag_pairs = screen_tags[max_index]
 
 local tag_bindings = gears.table.join()
 for i = 1, #tag_pairs.names do
-  local tag_name = '"' .. tag_pairs.names[i] .. '"'
-
   tag_bindings = gears.table.join(
     tag_bindings,
     -- View tag only.
@@ -21,7 +31,7 @@ for i = 1, #tag_pairs.names do
         tag:view_only()
       end
     end, {
-      description = "View tag #" .. i .. " " .. tag_name,
+      description = "View tag #" .. i,
       group = "tag",
     }),
 
@@ -33,7 +43,7 @@ for i = 1, #tag_pairs.names do
         awful.tag.viewtoggle(tag)
       end
     end, {
-      description = "Toggle display on tag #" .. i .. " " .. tag_name,
+      description = "Toggle display on tag #" .. i,
       group = "tag",
     }),
 
@@ -47,11 +57,7 @@ for i = 1, #tag_pairs.names do
         end
       end
     end, {
-      description = "Move client to tag #"
-        .. i
-        .. " "
-        .. tag_name
-        .. " and focus it",
+      description = "Move client to tag #" .. i .. " and focus it",
       group = "tag",
     }),
 
@@ -64,7 +70,7 @@ for i = 1, #tag_pairs.names do
         end
       end
     end, {
-      description = "Toggle focused client on tag #" .. i .. " " .. tag_name,
+      description = "Toggle focused client on tag #" .. i,
       group = "tag",
     })
   )
