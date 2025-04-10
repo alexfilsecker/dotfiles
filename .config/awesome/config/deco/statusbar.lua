@@ -1,5 +1,4 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
 local wibox = require("wibox")
 
 local battery_widget = require("config.deco.widgets.battery")
