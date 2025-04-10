@@ -1,6 +1,5 @@
 -- Here we will place all linting related code
 
-
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
@@ -14,7 +13,7 @@ return {
       typescriptreact = { "eslint_d" },
       python = { "pylint" },
     }
-    
+
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
