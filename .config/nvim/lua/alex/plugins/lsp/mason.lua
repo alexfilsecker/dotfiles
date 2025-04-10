@@ -32,13 +32,13 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        -- "tsserver",
         "html",
         "cssls",
         "lua_ls",
         "pylsp",
         "eslint",
       },
+      automatic_installation = true,
     })
 
     mason_tool_installer.setup({
