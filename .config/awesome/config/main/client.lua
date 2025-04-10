@@ -1,6 +1,7 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
+local naughty = require("naughty")
 
 client.connect_signal("manage", function(c)
   if
@@ -10,9 +11,16 @@ client.connect_signal("manage", function(c)
   then
     awful.placement.no_offscreen(c)
   end
+end)
 
-  c.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, 10) -- Replace 'radius' with your desired value
+client.connect_signal("request::geometry", function(c)
+  naughty.notify({ text = c.name .. " " .. tostring(c.fullscreen) })
+  if c.fullscreen then
+    c.shape = gears.shape.rectangle
+  else
+    c.shape = function(cr, w, h)
+      gears.shape.rounded_rect(cr, w, h, 10) -- Replace 'radius' with your desired value
+    end
   end
 end)
 
