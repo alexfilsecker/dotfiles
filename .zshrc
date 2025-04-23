@@ -43,6 +43,11 @@ alias dcdown='docker compose down'
 
 alias dlogs='docker logs'
 
+# Platformio
+alias piou='pio run -t upload'
+alias piom='pio run -t monitor'
+alias pioum='pio run -t upload && pio run -t monitor'
+
 # FinTree
 alias dlfa='docker logs fintree-api -f'
 alias dlfs='docker logs fintree-scraper -f'
