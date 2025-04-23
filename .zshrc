@@ -57,6 +57,9 @@ alias defa='docker exec -it fintree-api bash'
 alias defs='docker exec -it fintree-scraper bash'
 alias deff='docker exec -it fintree-front bash'
 
+# Alarm
+alias psql-alarm='psql -h localhost -p 5432 -U user -d alarm'
+
 # SSH to my portfolio's machine
 alias sshd='ssh root@170.64.175.43'
 
