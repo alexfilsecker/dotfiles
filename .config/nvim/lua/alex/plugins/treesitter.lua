@@ -8,6 +8,7 @@ return {
   config = function()
     local configs = require("nvim-treesitter.configs")
 
+    require("nvim-ts-autotag").setup()
     configs.setup({
       -- Enable syntax highlighting
       highlight = { enable = true },
@@ -15,8 +16,8 @@ return {
       -- Enable indentation
       indent = { enable = true },
 
-      -- Enable autotagging with nvim-ts-autotag-plugin
-      autotag = { enable = true },
+      -- -- Enable autotagging with nvim-ts-autotag-plugin
+      -- autotag = { enable = true },
 
       -- Auto install new languajes
       sync_install = false,
