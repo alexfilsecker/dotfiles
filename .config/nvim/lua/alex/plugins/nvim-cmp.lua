@@ -16,6 +16,7 @@ return {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
+    "tailwind-tools",
   },
 
   config = function()
@@ -60,6 +61,7 @@ return {
         format = lspkind.cmp_format({
           maxwidth = 50,
           ellipsis_char = "...",
+          before = require("tailwind-tools.cmp").lspkind_format,
         }),
       },
     })

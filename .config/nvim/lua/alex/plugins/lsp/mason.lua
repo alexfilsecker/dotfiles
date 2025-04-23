@@ -37,6 +37,8 @@ return {
         "lua_ls",
         "pylsp",
         "eslint",
+        "ts_ls",
+        "clangd",
       },
       automatic_installation = true,
     })
@@ -48,7 +50,6 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "pylint", -- python linter
-        "eslint_d", -- js linter
       },
     })
   end,
