@@ -21,6 +21,10 @@ local global_keys = require("config.binding.global_keys")
 local tag_keys = require("config.binding.tag_keys")
 root.keys(gears.table.join(global_keys, tag_keys))
 
+-- Set layouts
+local layouts = require("config.deco.layouts")
+awful.layout.layouts = layouts
+
 -- rules
 local rules = require("config.main.rules")
 awful.rules.rules = rules

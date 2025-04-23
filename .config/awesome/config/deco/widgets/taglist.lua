@@ -1,6 +1,7 @@
 local awful = require("awful")
 local gears = require("gears")
 
+local layouts = require("config.deco.layouts")
 local screen_tags = require("config.deco.tags")
 local user_variables = require("config.main.user_variables")
 local modkey = user_variables.modkey
@@ -43,8 +44,8 @@ local buttons = gears.table.join(
 
 return function(s)
   -- Set tag names and layouts
-  local tag_pairs = screen_tags[s.index]
-  awful.tag(tag_pairs.names, s, tag_pairs.layouts)
+  local tag_names = screen_tags[s.index]
+  awful.tag(tag_names, s, layouts[1])
 
   return awful.widget.taglist({
     screen = s,
