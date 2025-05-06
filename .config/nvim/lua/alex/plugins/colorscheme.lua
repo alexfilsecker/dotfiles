@@ -14,7 +14,7 @@ return {
         nvim_tree_darker = true,
       })
 
-      vim.cmd.colorscheme("vscode_modern")
+      -- vim.cmd.colorscheme("vscode_modern")
     end,
   },
 
@@ -66,7 +66,7 @@ return {
         flavour = "mocha",
       })
 
-      -- vim.cmd.colorscheme("catppuccin")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 }
