@@ -4,6 +4,16 @@ vim.cmd("let g:netrw_liststyle = 3")
 -- Consiceness
 local opt = vim.opt
 
+-- Autoread
+opt.autoread = true -- Reload a file when it changes outside of the buffer
+vim.api.nvim_create_autocmd(
+  { "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" },
+  {
+    command = "if mode() != 'c' | checktime | endif",
+    pattern = { "*" },
+  }
+)
+
 -- tabs & indents
 opt.autoindent = true -- Copy indentation from current line when starting new one
 opt.expandtab = true -- Transform tabs into spaces

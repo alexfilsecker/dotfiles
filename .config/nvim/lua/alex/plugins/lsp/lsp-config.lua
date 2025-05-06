@@ -13,16 +13,13 @@ return {
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
-    -- import mason_lspconfig plugin
-    local mason_lspconfig = require("mason-lspconfig")
-
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local keymap = vim.keymap -- for conciseness
 
     local opts = {}
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       opts.buffer = bufnr
 
       -- set keybinds
@@ -71,8 +68,14 @@ return {
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
     end
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-
+    local capabilities =
+      vim.tbl_deep_extend("force", cmp_nvim_lsp.default_capabilities(), {
+        workspace = {
+          didChangeWatchedFiles = {
+            dynamicRegistration = true,
+          },
+        },
+      })
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
     local signs =
