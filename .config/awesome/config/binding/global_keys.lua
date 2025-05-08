@@ -8,11 +8,8 @@ local user_variables = require("config.main.user_variables")
 local modkey = user_variables.modkey
 local terminal = user_variables.terminal
 
-local brightness_widget =
-  require("awesome-wm-widgets.brightness-widget.brightness")
 local minimized_counter_widget =
   require("config.deco.widgets.minimized_counter")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 return gears.table.join(
   -- AWESOME GROUP
