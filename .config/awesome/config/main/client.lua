@@ -1,7 +1,6 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 local gears = require("gears")
-local naughty = require("naughty")
 
 client.connect_signal("manage", function(c)
   if
@@ -14,7 +13,6 @@ client.connect_signal("manage", function(c)
 end)
 
 client.connect_signal("request::geometry", function(c)
-  naughty.notify({ text = c.name .. " " .. tostring(c.fullscreen) })
   if c.fullscreen then
     c.shape = gears.shape.rectangle
   else
