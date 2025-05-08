@@ -78,7 +78,7 @@ return gears.table.join(
     awful.spawn("google-chrome-stable")
   end, { desc = "Open Google Chrome", group = "launcher" }),
 
-  -- < Super + v > Opens Google Chrome
+  -- < Super + v > Opens Visual Studio Code
   awful.key({ modkey }, "v", function()
     awful.spawn("code")
   end, { desc = "Open Visual Studio Code", group = "launcher" }),
