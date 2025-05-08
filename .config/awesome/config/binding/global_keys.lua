@@ -83,6 +83,16 @@ return gears.table.join(
     awful.spawn("code")
   end, { desc = "Open Visual Studio Code", group = "launcher" }),
 
+  -- < Super + w > Opens Elecwhat (Whatsapp)
+  awful.key({ modkey }, "w", function()
+    awful.spawn("elecwhat")
+  end, { desc = "Open Elecwhat (Whatsapp)", group = "launcher" }),
+
+  -- < Super + s > Opens Spotify
+  awful.key({ modkey }, "s", function()
+    awful.spawn("spotify")
+  end, { desc = "Open Spotify", group = "launcher" }),
+
   -- SCREENS
   -- < Super + Ctrl + j > Focus next screen
   awful.key({ modkey, "Control" }, "j", function()
