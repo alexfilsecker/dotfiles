@@ -18,8 +18,8 @@ return gears.table.join(
   -- AWESOME GROUP
   -- < Super + s > Show help ui
   awful.key(
-    { modkey },
-    "s",
+    { modkey, "Shift" },
+    "'",
     hotkeys_popup.show_help,
     { description = "Show help", group = "awesome" }
   ),
