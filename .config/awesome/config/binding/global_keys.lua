@@ -8,8 +8,6 @@ local user_variables = require("config.main.user_variables")
 local modkey = user_variables.modkey
 local terminal = user_variables.terminal
 
-local mymainmenu = require("config.main.menu")
-
 local brightness_widget =
   require("awesome-wm-widgets.brightness-widget.brightness")
 local minimized_counter_widget =
@@ -32,11 +30,6 @@ return gears.table.join(
     awful.spawn("scrot -s holaaa"),
     { description = "Show help", group = "awesome" }
   ),
-
-  -- < Super + w > Show main menu
-  awful.key({ modkey }, "w", function()
-    mymainmenu:show()
-  end, { description = "Show main menu", group = "awesome" }),
 
   -- < Super + r > Reload Awesome
   awful.key(
