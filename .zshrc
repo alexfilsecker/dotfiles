@@ -63,6 +63,9 @@ alias psql-alarm='psql -h localhost -p 5432 -U user -d alarm'
 # SSH to my portfolio's machine
 alias sshd='ssh root@170.64.175.43'
 
+# SSH to my raspberry pi
+alias sshpi='ssh pi@192.168.50.146'
+
 # Activate the current's dir python virtual environment
 alias venv='source venv/bin/activate'
 
@@ -80,3 +83,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
