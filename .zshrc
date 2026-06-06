@@ -1,89 +1,38 @@
-# Path to your oh-my-zsh installation.
+# ── p10k ─ instant prompt (MUST be first) ──────────────────
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# ── Exports & PATH ────────────────────────────────────────
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="vim"
 
-# Set zsh theme
-ZSH_THEME="robbyrussell"
+# ── Oh My Zsh config ──────────────────────────────────────
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-COMPLETION_WAITING_DOTS="true"
-
-# Plugins that we use, see a complete list in
-# https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
 plugins=(
   git
-	aliases
-	colored-man-pages
-	colorize
-	compleat
-	docker
-  themes
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# --- Aliases ---
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias lazy-config='lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+# ── Aliases ───────────────────────────────────────────────
+# .... Normal file exploring ...............................
+alias ll="ls -la"
 
-# Basic commands
-alias ls='ls -l --color=auto'
-alias ll='ls -la --color=auto'
-alias grep='grep --color=auto'
-alias cat='ccat'
+# .... Dotfiles ────────────────────────────────────────────
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias lazyconfig='lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-# Docker related commands
-alias dps='docker ps --format "table {{.Image}}\t{{.CreatedAt}}\t{{.Status}}\t{{.Names}}"'
-alias drmall='docker stop $(docker ps -q) ; docker rm $(docker ps -qa)'
-
-alias dcupd='docker compose up -d'
-alias dcupdb='docker compose up -d --build'
-alias dcdown='docker compose down'
-
-alias dlogs='docker logs'
-
-# Platformio
-alias piou='pio run -t upload'
-alias piom='pio run -t monitor'
-alias pioum='pio run -t upload && pio run -t monitor'
-
-# FinTree
-alias dlfa='docker logs fintree-api -f'
-alias dlfs='docker logs fintree-scraper -f'
-alias dlff='docker logs fintree-front -f'
-
-alias defa='docker exec -it fintree-api bash'
-alias defs='docker exec -it fintree-scraper bash'
-alias deff='docker exec -it fintree-front bash'
-
-# Alarm
-alias psql-alarm='psql -h localhost -p 5432 -U user -d alarm'
-
-# SSH to my portfolio's machine
-alias sshd='ssh root@170.64.175.43'
-
-# SSH to my raspberry pi
-alias sshpi='ssh pi@192.168.50.146'
-
-# Activate the current's dir python virtual environment
-alias venv='source venv/bin/activate'
-
-# Frases project
-alias hola='curl localhost:8005'
-
-# bun completions
-[ -s "/home/alex/.bun/_bun" ] && source "/home/alex/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# pyenv
+# ── Tools  ────────────────────────────────────────────────
+# .... pyenv ...............................................
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
+# .... fnm .................................................
+eval "$(fnm env --use-on-cd --shell zsh)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# ── p10k (MUST be last) ───────────────────────────────────
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
