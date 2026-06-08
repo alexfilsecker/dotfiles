@@ -44,7 +44,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # .... fnm .................................................
-eval "$(fnm env --use-on-cd --shell zsh)"
+{ eval "$(fnm env --use-on-cd --shell zsh)"; } &>/dev/null
 
 # ── p10k (MUST be last) ───────────────────────────────────
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
