@@ -7,6 +7,7 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="vim"
 export VISUAL="vim"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # ── Oh My Zsh config ──────────────────────────────────────
@@ -42,6 +43,12 @@ alias unsetenvs='unset $(grep -v '^#' .env | cut -d -f1)'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# .... pyenv virtural-env ..................................
+eval "$(pyenv virtualenv-init -)"
+
+# .... Go ..................................................
+export PATH="$HOME/go/bin:$PATH"
 
 # .... fnm .................................................
 { eval "$(fnm env --use-on-cd --shell zsh)"; } &>/dev/null
